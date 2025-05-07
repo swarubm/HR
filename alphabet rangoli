@@ -1,0 +1,170 @@
+def print_rangoli(size):
+    # your code goes here
+    import string
+    alphabet = string.ascii_lowercase
+    lines = []
+    for i in range(size):
+        # Build the left and right parts around the center character
+        left = alphabet[size-1:i:-1]
+        center = alphabet[i]
+        right = alphabet[i+1:size]
+        row = '-'.join(left + center + right)
+        # Center-align the row using hyphens to match width
+        lines.append(row.center(4 * size - 3, '-'))
+
+    # Combine the top half (reversed) + bottom half (excluding middle line again)
+    full_pattern = lines[::-1] + lines[1:]
+    print('\n'.join(full_pattern))
+
+
+if __name__ == '__main__':
+    n = int(input())
+    print_rangoli(n)
+
+
+
+
+#exp
+ def print_rangoli(size):
+Python Concept: Function definition.
+
+Explanation: This defines a function named print_rangoli that takes one argument, size, which determines the height and width of the rangoli pattern.
+
+✅ import string
+Python Concept: Importing modules.
+
+Explanation: This brings in Python’s built-in string module, which contains constants and functions for string manipulation.
+
+✅ alphabet = string.ascii_lowercase
+Python Concepts:
+
+Module attribute access.
+
+Strings.
+
+Explanation: Assigns a string of lowercase letters from 'a' to 'z' to the variable alphabet. Example: 'abcdefghijklmnopqrstuvwxyz'.
+
+✅ lines = []
+Python Concept: List initialization.
+
+Explanation: Creates an empty list named lines that will hold each row (line) of the rangoli pattern.
+
+✅ for i in range(size):
+Python Concept: Looping with range().
+
+Explanation: Iterates i from 0 to size - 1, building each line of the top half (including the center line) of the rangoli.
+
+✅ left = alphabet[size-1:i:-1]
+Python Concepts:
+
+String slicing with step.
+
+Explanation:
+
+Takes a slice from the letter at index size-1 down to i+1 (not inclusive), stepping backwards (-1).
+
+Builds the left side of the row (e.g., from 'e' to 'b' for size 5 and i=0).
+
+✅ center = alphabet[i]
+Python Concept: Indexing strings.
+
+Explanation: Picks the center character for the row (e.g., 'a', 'b', etc.).
+
+✅ right = alphabet[i+1:size]
+Python Concept: Slicing.
+
+Explanation: Takes the slice after the center character up to size-1 for the right side of the row.
+
+✅ row = '-'.join(left + center + right)
+Python Concepts:
+
+String concatenation.
+
+List + string = string list.
+
+String method .join().
+
+Explanation:
+
+Combines left, center, and right into a list of characters.
+
+Joins them using hyphens (-) to form one symmetrical row string like 'e-d-c-b-a-b-c-d-e'.
+
+✅ lines.append(row.center(4 * size - 3, '-'))
+Python Concepts:
+
+List methods: append().
+
+String method: center(width, fillchar).
+
+Explanation:
+
+The row is centered in a line of width 4 * size - 3, using - as filler.
+
+This ensures consistent width across all rows.
+
+✅ full_pattern = lines[::-1] + lines[1:]
+Python Concepts:
+
+List slicing.
+
+Reversal with [::-1].
+
+List concatenation.
+
+Explanation:
+
+lines[::-1]: creates the top half (including middle row) in reverse.
+
+lines[1:]: creates the bottom half (excluding the middle again).
+
+Combined, they form a full rangoli from top to bottom.
+
+✅ print('\n'.join(full_pattern))
+Python Concepts:
+
+String method: .join() for multi-line output.
+
+Printing to console.
+
+Explanation:
+
+Joins all lines with newline characters \n.
+
+Prints the complete rangoli pattern.
+
+✅ if __name__ == '__main__':
+Python Concept: Main guard.
+
+Explanation: Ensures that this block runs only when the file is executed directly (not imported as a module).
+
+✅ n = int(input())
+Python Concepts:
+
+Input handling.
+
+Type conversion.
+
+Explanation: Gets user input for n, the size of the rangoli, and converts it to an integer.
+
+✅ print_rangoli(n)
+Python Concept: Function call.
+
+Explanation: Calls the print_rangoli function with the user-supplied size.
+
+📌 Example Input:
+Copy
+Edit
+3
+📌 Output:
+css
+Copy
+Edit
+----c----
+--c-b-c--
+c-b-a-b-c
+--c-b-c--
+----c----
+
+
+
