@@ -1,0 +1,100 @@
+def solve(s):
+    return ' '.join(word.capitalize() for word in s.split(' '))
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    s = input()
+
+    result = solve(s)
+
+    fptr.write(result + '\n')
+
+    fptr.close()
+
+
+  #explain
+  ✅ def solve(s):
+Python Concept: Function definition.
+
+Explanation: Declares a function solve that takes a string s as input and returns a modified version of it.
+
+✅ return ' '.join(word.capitalize() for word in s.split(' '))
+Python Concepts:
+
+String method: split(' ') splits the string by spaces into a list of words.
+
+Generator expression: (word.capitalize() for word in ...) creates each word with the first letter capitalized.
+
+String method: capitalize() capitalizes only the first character of the word, rest becomes lowercase.
+
+String method: ' '.join(...) joins the capitalized words back together with single spaces.
+
+Explanation:
+
+Example: 'hello world' → 'Hello World'.
+
+Handles multiple spaces properly because it uses ' '.split(' ') to preserve spacing.
+
+✅ if __name__ == '__main__':
+Python Concept: Main guard.
+
+Explanation: Ensures the following code runs only when the file is executed directly (not when imported).
+
+✅ fptr = open(os.environ['OUTPUT_PATH'], 'w')
+Python Concepts:
+
+File I/O: open() opens a file.
+
+Environment variable: os.environ[...] accesses environment variables.
+
+Mode 'w': Opens the file for writing.
+
+Explanation:
+
+Retrieves a path from the system’s environment variable OUTPUT_PATH.
+
+Opens a file at that path in write mode to store output.
+
+⚠️ Note: os module is used but not imported in this code snippet. You should add:
+
+python
+Copy
+Edit
+import os
+before this line.
+
+✅ s = input()
+Python Concept: Input from user.
+
+Explanation: Reads a string from standard input.
+
+✅ result = solve(s)
+Python Concepts:
+
+Function call.
+
+Explanation: Calls the solve function with input string s, stores the result in result.
+
+✅ fptr.write(result + '\n')
+Python Concept: Writing to a file.
+
+Explanation: Writes the modified string followed by a newline into the opened file.
+
+✅ fptr.close()
+Python Concept: File handling.
+
+Explanation: Closes the file to safely finish writing.
+
+📌 Example:
+If input is:
+
+nginx
+Copy
+Edit
+hello   world
+Output written to file will be:
+
+nginx
+Copy
+Edit
+Hello   World
