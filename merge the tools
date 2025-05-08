@@ -1,0 +1,43 @@
+def merge_the_tools(string, k):
+✅ Defines a function with parameters string and k.
+🔧 Python Concept: Function definition.
+
+for i in range(0, len(string), k):
+✅ Loops over the string in steps of size k (e.g., 0, k, 2k...).
+🔁 Python Concept: range(start, stop, step) for controlled iteration.
+
+chunk = string[i:i+k]
+✅ Extracts a substring (chunk) of length k from index i.
+✂️ Python Concept: String slicing.
+
+seen = ""
+✅ Initializes an empty string to collect unique characters.
+📦 Python Concept: String assignment and initialization.
+
+for char in chunk:
+✅ Loops through each character in the current chunk.
+🔁 Python Concept: Looping through a string (iterable).
+
+if char not in seen:
+✅ Checks if the character has not already been added.
+🔍 Python Concept: Membership test using in and not in.
+
+seen += char
+✅ Adds unique characters to the seen string.
+🧱 Python Concept: String concatenation (+=).
+
+print(seen)
+✅ Prints the cleaned chunk with duplicates removed.
+🖨️ Python Concept: Output using print().
+
+if __name__ == '__main__':
+✅ Ensures the code below runs only when the script is executed directly.
+🧪 Python Concept: Python script entry point.
+
+string, k = input(), int(input())
+✅ Reads the input string and integer from the user.
+🎮 Python Concept: Input handling and type casting with int().
+
+merge_the_tools(string, k)
+✅ Calls the function with the input values.
+🔁 Python Concept: Function invocatio
