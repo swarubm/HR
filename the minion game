@@ -1,0 +1,173 @@
+def minion_game(string):
+    # your code goes here
+    vowels = 'AEIOU'
+    stuart_score = 0
+    kevin_score = 0
+    length = len(string)
+
+    for i in range(length):
+        if string[i] in vowels:
+            kevin_score += length - i
+        else:
+            stuart_score += length - i
+
+    if stuart_score > kevin_score:
+        print("Stuart", stuart_score)
+    elif kevin_score > stuart_score:
+        print("Kevin", kevin_score)
+    else:
+        print("Draw")
+if __name__ == '__main__':
+    s = input()
+    minion_game(s)
+
+
+
+```python
+def minion_game(string):
+
+yaml
+Copy
+Edit
+- This defines a function named `minion_game` that takes one parameter `string`.
+- Functions are reusable blocks of code.
+- The `string` is the input word that the game will be played on.
+
+---
+
+### ```python
+    vowels = 'AEIOU'
+A string containing all uppercase vowels.
+
+We'll use this to check whether a character is a vowel using in keyword.
+
+This helps decide which player gets points.
+
+```python
+ini
+Copy
+Edit
+stuart_score = 0
+kevin_score = 0
+yaml
+Copy
+Edit
+- Initialize both players' scores to zero.
+- `stuart_score` is for consonant-starting substrings.
+- `kevin_score` is for vowel-starting substrings.
+
+---
+
+### ```python
+    length = len(string)
+Calculates the length of the input string.
+
+Storing it avoids recomputing it in every iteration of the loop.
+
+```python
+r
+Copy
+Edit
+for i in range(length):
+yaml
+Copy
+Edit
+- A `for` loop that goes through each index `i` in the string.
+- `range(length)` means from `0` to `length - 1`.
+
+---
+
+### ```python
+        if string[i] in vowels:
+Checks if the current character at position i is a vowel.
+
+Uses the in keyword for membership checking.
+
+```python
+markdown
+Copy
+Edit
+        kevin_score += length - i
+yaml
+Copy
+Edit
+- If it's a vowel, Kevin gets `length - i` points.
+- This is because `length - i` substrings can start at position `i`.
+
+---
+
+### ```python
+        else:
+            stuart_score += length - i
+If it's not a vowel, it's a consonant.
+
+Stuart gets the same number of points (length - i) for substrings starting here.
+
+```python
+yaml
+Copy
+Edit
+if stuart_score > kevin_score:
+yaml
+Copy
+Edit
+- Compares the two scores.
+- If Stuart has more points, he wins.
+
+---
+
+### ```python
+        print("Stuart", stuart_score)
+Prints Stuart’s name and his score.
+
+```python
+bash
+Copy
+Edit
+elif kevin_score > stuart_score:
+yaml
+Copy
+Edit
+- If Kevin has more points, this block runs.
+
+---
+
+### ```python
+        print("Kevin", kevin_score)
+Prints Kevin’s name and score.
+
+```python
+bash
+Copy
+Edit
+else:
+    print("Draw")
+yaml
+Copy
+Edit
+- If both scores are equal, prints `"Draw"`.
+
+---
+
+### ```python
+if __name__ == '__main__':
+This line ensures the following code runs only if the script is executed directly.
+
+Common practice for Python scripts.
+
+```python
+ini
+Copy
+Edit
+s = input()
+yaml
+Copy
+Edit
+- Takes input from the user and stores it in variable `s`.
+- `input()` always returns a string.
+
+---
+
+### ```python
+    minion_game(s)
+Calls the minion_game function with the input string s.
