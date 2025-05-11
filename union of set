@@ -1,0 +1,80 @@
+✅ Line 1:
+python
+Copy
+Edit
+n_english = int(input())
+What it does: Reads the number of students who have subscribed to the English newspaper.
+
+Core concept:
+
+input() → takes user input as a string.
+
+int() → converts that string to an integer.
+
+✅ Line 2:
+python
+Copy
+Edit
+english_subscribers = set(map(int, input().split()))
+What it does:
+
+Reads roll numbers (space-separated), converts them into integers, and stores them in a set.
+
+Core concepts:
+
+input().split() → splits the input string into a list of strings (tokens).
+
+map(int, ...) → converts each token into an integer.
+
+set(...) → stores the integers in a set, which automatically removes duplicates and allows for set operations like union and intersection.
+
+✅ Line 4–5:
+python
+Copy
+Edit
+n_french = int(input())
+french_subscribers = set(map(int, input().split()))
+Same logic as above, but for French newspaper subscribers.
+
+✅ Line 8:
+python
+Copy
+Edit
+total_unique_subscribers = english_subscribers.union(french_subscribers)
+What it does: Combines both sets and removes any duplicates, giving you students who subscribed to at least one newspaper.
+
+Core concept:
+
+.union() → is a set method that returns a new set containing all unique elements from both sets.
+
+Alternative syntax: english_subscribers | french_subscribers (same result using the | operator).
+
+✅ Line 11:
+python
+Copy
+Edit
+print(len(total_unique_subscribers))
+What it does: Prints the total count of unique students.
+
+Core concepts:
+
+len() → built-in function to get the number of elements in a set.
+
+print() → displays the result to the user.
+
+🔁 Summary of Logic:
+Take roll numbers from input.
+
+Store them in sets to automatically handle uniqueness.
+
+Use union() to get students who subscribed to either English or French.
+
+Use len() to count them.
+
+✅ Why sets?
+Fast membership checking (in operator).
+
+Automatically handles duplicates.
+
+Powerful set operations: union, intersection, difference, etc.
+
