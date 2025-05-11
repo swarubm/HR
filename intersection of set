@@ -1,0 +1,69 @@
+n_english = int(input())
+english_subscribers = set(map(int, input().split()))
+🔹 What’s happening:
+input() — gets user input as a string (e.g., "1 2 3 4").
+
+split() — splits the string into a list of strings (e.g., ["1", "2", "3", "4"]).
+
+map(int, ...) — converts each string to an integer.
+
+set(...) — stores the result in a set, removing any duplicates automatically.
+
+🔑 Why use a set?
+A set in Python is an unordered collection of unique items. It allows efficient operations like union, intersection, and difference — ideal for comparing groups.
+
+python
+Copy
+Edit
+# Number of students subscribed to French
+n_french = int(input())
+french_subscribers = set(map(int, input().split()))
+Same logic as above, now storing roll numbers of French subscribers into another set.
+
+python
+Copy
+Edit
+# Intersection of both sets
+common_subscribers = english_subscribers.intersection(french_subscribers)
+🔹 What’s happening:
+.intersection() — returns a new set containing only the elements that are present in both english_subscribers and french_subscribers.
+
+🧠 Python concept:
+set1.intersection(set2) is the set theory equivalent of finding common elements. You can also use the & operator:
+
+python
+Copy
+Edit
+common_subscribers = english_subscribers & french_subscribers
+python
+Copy
+Edit
+# Output the total count
+print(len(common_subscribers))
+🔹 What’s happening:
+len() — returns the number of elements in the common_subscribers set.
+
+print() — outputs that number to the screen.
+
+📌 Example:
+Input:
+
+Copy
+Edit
+9
+1 2 3 4 5 6 7 8 9
+9
+10 1 2 3 11 21 55 6 8
+english_subscribers = {1, 2, 3, 4, 5, 6, 7, 8, 9}
+french_subscribers = {1, 2, 3, 6, 8, 10, 11, 21, 55}
+common_subscribers = {1, 2, 3, 6, 8}
+Output: 5
+
+✅ Summary of Key Python Concepts Used:
+Feature	Concept Description
+input()	Reads user input as string
+split()	Splits string into a list of words/numbers
+map()	Applies a function (int) to each item in the list
+set()	Stores unique values and enables fast set operations
+intersection()	Finds common elements in two sets
+len()	Returns the number of elements in a collection (like set)
