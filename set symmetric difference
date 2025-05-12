@@ -1,0 +1,96 @@
+1. Reading number of English subscribers
+python
+Copy
+Edit
+english_count = int(input())
+input() reads a line of input as a string.
+
+int() converts that string into an integer.
+
+This tells us how many students have English subscriptions, but the number itself isn’t used beyond reading the input correctly.
+
+2. Reading English subscriber roll numbers
+python
+Copy
+Edit
+english_subs = set(map(int, input().split()))
+input().split() splits the string into a list of strings.
+
+"1 2 3" → ["1", "2", "3"]
+
+map(int, ...) turns these into integers.
+
+["1", "2", "3"] → [1, 2, 3]
+
+set(...) stores them as a set (removes duplicates and allows set operations).
+
+[1, 2, 3] → {1, 2, 3}
+
+3. Reading number of French subscribers
+python
+Copy
+Edit
+french_count = int(input())
+Similar to step 1, for input structure purposes.
+
+4. Reading French subscriber roll numbers
+python
+Copy
+Edit
+french_subs = set(map(int, input().split()))
+Same process as step 2, now for French subscriptions.
+
+5. Finding students subscribed to one newspaper only
+python
+Copy
+Edit
+either_but_not_both = english_subs.symmetric_difference(french_subs)
+.symmetric_difference() is a built-in set method.
+
+It returns a new set with elements in either one of the sets, but not both.
+
+If a student is in both sets, they’re excluded from the result.
+
+Alternatively, you could write:
+
+python
+Copy
+Edit
+either_but_not_both = english_subs ^ french_subs
+Example:
+
+python
+Copy
+Edit
+english = {1, 2, 3, 4}
+french = {2, 3, 5, 6}
+english.symmetric_difference(french)  # Output: {1, 4, 5, 6}
+6. Getting the total count
+python
+Copy
+Edit
+print(len(either_but_not_both))
+len() gives the number of elements in the resulting set.
+
+print() displays the answer.
+
+🧠 Core Python Concepts Used
+Concept	Description
+input()	Reading string input from user
+int()	Converting string to integer
+split()	Splitting string into a list of substrings
+map()	Applying a function (int) to each item in an iterable
+set()	Creating a set for uniqueness and set operations
+.symmetric_difference() or ^	Finding elements in either of two sets, but not both
+len()	Getting the number of elements in a set
+print()	Displaying output
+
+
+
+
+
+
+
+
+
+
