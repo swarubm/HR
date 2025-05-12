@@ -1,0 +1,96 @@
+✅ 1. Reading the number of English newspaper subscribers
+python
+Copy
+Edit
+english_count = int(input())
+input() reads input from the user as a string.
+
+int() converts that string into an integer.
+
+This line captures how many students have subscribed to the English newspaper.
+
+This value isn't used later, but it's read to maintain the expected input format.
+
+✅ 2. Reading and storing English subscriber roll numbers in a set
+python
+Copy
+Edit
+english_subs = set(map(int, input().split()))
+input().split() reads a line of space-separated values and splits them into a list of strings.
+
+Example: "1 2 3" → ["1", "2", "3"]
+
+map(int, ...) applies int() to each string, converting the list to integers.
+
+["1", "2", "3"] → [1, 2, 3]
+
+set(...) converts the list of integers to a set, removing duplicates and allowing set operations.
+
+Example: [1, 2, 2, 3] → {1, 2, 3}
+
+✅ 3. Reading the number of French newspaper subscribers
+python
+Copy
+Edit
+french_count = int(input())
+Again, this reads the count of French newspaper subscribers using the same logic as step 1.
+
+Not used directly, but read to match the input format.
+
+✅ 4. Reading and storing French subscriber roll numbers in a set
+python
+Copy
+Edit
+french_subs = set(map(int, input().split()))
+Same process as step 2, but for French subscribers.
+
+Result is a set of roll numbers for students subscribed to the French newspaper.
+
+✅ 5. Finding students who subscribed only to the English newspaper
+python
+Copy
+Edit
+only_english = english_subs.difference(french_subs)
+.difference() is a method of Python’s set type.
+
+It returns a new set with all elements from english_subs that are not in french_subs.
+
+This is a key use of set theory in Python: subtracting one set from another.
+
+Example:
+
+python
+Copy
+Edit
+english_subs = {1, 2, 3, 4}
+french_subs = {2, 3}
+only_english = english_subs.difference(french_subs)  # → {1, 4}
+✅ 6. Printing the result
+python
+Copy
+Edit
+print(len(only_english))
+len() gives the number of elements in the only_english set.
+
+print() outputs that number — which is your final answer.
+
+🧠 Core Concepts You Used
+Concept	Used In
+input()	Reading data from the user
+int()	Type conversion for numeric input
+map()	Applying a function (here int) to a sequence
+split()	Turning a string into a list of values
+set()	Storing unique values and using set operations
+.difference()	Subtracting one set from another
+len()	Measuring the size of a container
+print()	Outputting the result
+
+🧩 How to Approach Similar Problems
+Break input into parts — Read and store using the right data structures.
+
+Think about what operation is needed — Union? Intersection? Difference?
+
+Use Python’s built-in tools — Sets are powerful for these use cases.
+
+Always test with examples — Confirm your logic with sample data.
+
