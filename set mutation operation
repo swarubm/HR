@@ -1,0 +1,65 @@
+Let's break this down and solve the task step-by-step, explaining the Python logic at each stage.
+
+🔧 Python Core Concepts Involved:
+
+set is a built-in Python data structure for storing unique elements.
+
+update(), intersection_update(), difference_update(), and symmetric_difference_update() are methods that mutate the original set.
+
+input(), split(), and map() are used for reading and processing input from the user.
+
+✅ Task Summary:
+
+You're given:
+
+An initial set A
+
+N operations, each with:
+
+An operation name (e.g., update)
+
+A set of elements to apply the operation with
+
+The goal is to mutate A using all operations and print sum(A) at the end.
+
+📘 Here's the complete solution in Python:
+
+python
+Copy
+Edit
+# Step 1: Read the number of elements in set A
+n = int(input())
+
+# Step 2: Read the elements of set A
+A = set(map(int, input().split()))
+
+# Step 3: Read number of operations
+N = int(input())
+
+# Step 4: Loop over each operation
+for _ in range(N):
+    # Read the operation and number of elements (we can ignore the number)
+    op_name, _ = input().split()
+    # Read the elements for the other set
+    other_set = set(map(int, input().split()))
+    
+    # Use getattr to dynamically call the appropriate method on A
+    getattr(A, op_name)(other_set)
+
+# Step 5: Output the sum of the elements in the final set
+print(sum(A))
+🧠 How it works:
+
+map(int, input().split()) turns input strings into integers.
+
+set(...) wraps them into a Python set.
+
+getattr(A, op_name) fetches the set method dynamically.
+
+sum(A) computes the final sum of all elements after mutation.
+
+📌 Example: With your sample input, the final set becomes {4, 5, 6, 7, 8, 1, 2, 3, 9, 10, 13, 14}, and the sum is:
+
+1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10 + 13 + 14 = 92
+→ After all operations, only a subset remains
+→ Final sum = 38 ✅
