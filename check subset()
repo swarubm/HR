@@ -1,0 +1,15 @@
+T = int(input())
+
+for i in range(T):
+    # Number of elements in set A (not actually used)
+    i = int(input())
+    A = set(map(int, input().split()))
+    
+    # Number of elements in set B (not actually used)
+    i = int(input())
+    B = set(map(int, input().split()))
+    
+    # Check if A is subset of B
+    print(A.issubset(B))
+
+  
