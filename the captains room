@@ -1,0 +1,123 @@
+We are given:
+
+An integer K – the number of members in each family group.
+
+A list of room numbers, where:
+
+Every room number except one (the Captain’s room) appears exactly K times.
+
+One room number (the Captain’s) appears only once.
+
+🎯 Goal: Find and print the Captain's room number.
+
+✅ Step-by-Step Code Explanation
+python
+Copy
+Edit
+# Step 1: Read group size
+K = int(input())
+🧠 Python concept used:
+
+input() reads a line of input as a string.
+
+int(...) converts it into an integer.
+
+📌 In this problem, K tells us how many times each group’s room number appears in the list. The Captain’s room number is the only one that appears once.
+
+python
+Copy
+Edit
+# Step 2: Read the list of room numbers
+rooms = list(map(int, input().split()))
+🧠 Python concepts used:
+
+input().split() breaks a string of space-separated values into a list of strings.
+
+map(int, ...) converts each string to an integer.
+
+list(...) collects those integers into a Python list.
+
+📌 rooms now holds all room numbers, including duplicates.
+
+🧪 Example:
+
+makefile
+Copy
+Edit
+Input: 1 2 3 2 1 3 2 3 1 3 2 1 8
+Output: rooms = [1, 2, 3, 2, 1, 3, 2, 3, 1, 3, 2, 1, 8]
+python
+Copy
+Edit
+# Step 3: Use the formula
+captain_room = (K * sum(set(rooms)) - sum(rooms)) // (K - 1)
+🧠 Math + Python concepts used:
+
+set(rooms) gives the unique room numbers (removes duplicates).
+
+sum(...) calculates the total of elements in a list or set.
+
+Integer arithmetic is used to apply a mathematical formula.
+
+💡 Key logic:
+
+Let:
+
+S = sum(set(rooms)) = sum of all unique room numbers
+
+T = sum(rooms) = total sum of all room numbers (with duplicates)
+
+Now imagine each unique room appears K times, except the Captain’s room (let’s call it x), which appears only once.
+
+That means:
+
+ini
+Copy
+Edit
+T = K * (S - x) + x
+Solving that:
+
+ini
+Copy
+Edit
+x = (K * S - T) / (K - 1)
+We use integer division // because room numbers are whole numbers.
+
+python
+Copy
+Edit
+# Step 4: Print the captain's room number
+print(captain_room)
+🧠 Python concept:
+
+Simple print() function to output the result.
+
+📌 This will print the Captain’s room number, the one that appears only once.
+
+🧠 How This Helps You in Similar Problems
+This approach teaches you to:
+
+Use sets to eliminate duplicates.
+
+Apply count-based logic with math when a pattern of repetition is known.
+
+Use input parsing with map() and split() for processing bulk input.
+
+Apply clever mathematical deductions instead of brute-force methods (e.g., no need for loops or counters).
+
+🧪 Optional Alternate Approach (for learning)
+You could also solve this using collections.Counter, which gives the count of each item:
+
+python
+Copy
+Edit
+from collections import Counter
+
+K = int(input())
+rooms = list(map(int, input().split()))
+room_counts = Counter(rooms)
+
+for room, count in room_counts.items():
+    if count == 1:
+        print(room)
+        break
