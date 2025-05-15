@@ -1,0 +1,141 @@
+You're given two sides (AB and BC) of a right-angled triangle (right angle at B) and need to calculate angle MBC, where M is the midpoint of the hypotenuse AC.
+
+🧠 Step-by-Step Explanation of Code
+python
+Copy
+Edit
+import math
+✅ What it does:
+This imports Python’s built-in math module.
+
+It gives you access to mathematical functions like sqrt, acos, and degrees, which you need for trigonometric calculations.
+
+python
+Copy
+Edit
+a = int(input())  # AB
+b = int(input())  # BC
+✅ What it does:
+Takes user input for the two triangle sides and converts them to integers.
+
+input() reads a string, and int() converts it to an integer.
+
+These sides represent:
+
+a = AB (horizontal leg)
+
+b = BC (vertical leg)
+
+python
+Copy
+Edit
+cos_theta = b / math.sqrt(a**2 + b**2)
+✅ What it does:
+Calculates the cosine of angle ∠MBC using geometry and vector math.
+
+🧮 Why it works:
+In coordinate geometry, if:
+
+B is at (0, 0)
+
+A is at (a, 0)
+
+C is at (0, b)
+
+Then the midpoint M of AC is:
+
+ini
+Copy
+Edit
+M = (a/2, b/2)
+Vector BM = (a/2, b/2) and vector BC = (0, b)
+
+Using the dot product formula:
+
+cos
+⁡
+(
+𝜃
+)
+=
+𝐵
+𝑀
+⃗
+⋅
+𝐵
+𝐶
+⃗
+∣
+𝐵
+𝑀
+⃗
+∣
+⋅
+∣
+𝐵
+𝐶
+⃗
+∣
+=
+𝑏
+𝑎
+2
++
+𝑏
+2
+cos(θ)= 
+∣ 
+BM
+ ∣⋅∣ 
+BC
+ ∣
+BM
+ ⋅ 
+BC
+ 
+​
+ = 
+a 
+2
+ +b 
+2
+ 
+​
+ 
+b
+​
+ 
+python
+Copy
+Edit
+theta_rad = math.acos(cos_theta)
+✅ What it does:
+Calculates the angle in radians using acos(), which is the inverse cosine function (cos⁻¹).
+
+Input must be between -1 and 1 (satisfied here).
+
+python
+Copy
+Edit
+theta_deg = round(math.degrees(theta_rad))
+✅ What it does:
+Converts radians to degrees using math.degrees().
+
+Then it rounds the result to the nearest integer (important due to floating-point imprecision).
+
+🧠 Why degrees? Because humans and most problem statements use angles in degrees, not radians.
+
+python
+Copy
+Edit
+print(f"{theta_deg}{chr(176)}")
+✅ What it does:
+Uses f-string formatting to insert the value of theta_deg into the string.
+
+chr(176) is the ASCII-safe way to print the degree symbol (°).
+
+In Python, chr() returns the character associated with an ASCII code.
+
+chr(176) = ° (degree symbol).
+
+💡 This avoids directly typing °, which may be considered non-ASCII and cause errors on some coding platforms.
