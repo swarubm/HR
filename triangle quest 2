@@ -1,0 +1,151 @@
+🔍 Step-by-Step Explanation
+🔸 int(input())
+Reads user input as a string (e.g., '5') and converts it to an integer.
+
+This gives us the size of the triangle — how many rows to print.
+
+🔸 range(1, int(input())+1)
+The range function generates numbers from 1 up to N (inclusive).
+
+i takes values 1, 2, 3, ..., N — each represents a row in the triangle.
+
+🧠 Palindromic Pattern Insight
+Let’s look at what should be printed for each row i:
+
+i	Printed Value
+1	1
+2	121
+3	12321
+4	1234321
+5	123454321
+
+These are numeric palindromes (they read the same forward and backward), and they follow a known mathematical pattern.
+
+🧮 Math Trick: ((10**i)//9)**2
+Let’s break this down:
+
+🔹 10**i
+This is 10 raised to the power i.
+
+For i = 1, 10**1 = 10
+
+For i = 2, 10**2 = 100
+
+For i = 3, 10**3 = 1000
+
+And so on…
+
+🔹 10**i // 9
+Dividing 10**i by 9 gives us a number made entirely of 1s:
+
+10 // 9 = 1
+
+100 // 9 = 11
+
+1000 // 9 = 111
+
+10000 // 9 = 1111
+
+This happens because:
+
+10
+𝑖
+−
+1
+9
+=
+a number with 
+𝑖
+ ones
+9
+10 
+i
+ −1
+​
+ =a number with i ones
+So:
+
+10
+1
+9
+=
+1
+9
+10 
+1
+ 
+​
+ =1
+
+10
+2
+9
+=
+11
+9
+10 
+2
+ 
+​
+ =11
+
+10
+3
+9
+=
+111
+9
+10 
+3
+ 
+​
+ =111
+
+And so on...
+
+🔹 Squaring That: (...)**2
+Squaring those "1-pattern" numbers gives the palindromes:
+
+1
+2
+=
+1
+1 
+2
+ =1
+
+11
+2
+=
+121
+11 
+2
+ =121
+
+111
+2
+=
+12321
+111 
+2
+ =12321
+
+1111
+2
+=
+1234321
+1111 
+2
+ =1234321
+
+This is a well-known math identity:
+
+(
+111...1
+)
+2
+=
+palindromic number
+(111...1) 
+2
+ =palindromic number
